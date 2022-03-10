@@ -13,15 +13,15 @@ def home():
 @app.get("/current_datetime")
 def current_datetime():
     data = int(datetime.now().strftime("%H"))
-    data_formated = datetime.now().strftime("%d/%m/%Y %H:%M:%S %p")
+    data_formated = datetime.now().strftime("%d/%m/%Y %I:%M:%S %P").upper()
 
     if data < 12:
-         return {"current_datetime": data_formated, "message": "Bom Dia!"}, HTTPStatus.OK
+         return {"current_datetime": data_formated, "message": "Bom dia!"}, HTTPStatus.OK
 
     elif data >= 12 and data < 18:
-         return {"current_datetime": data_formated, "message": "Boa Tarde!"}, HTTPStatus.OK
+         return {"current_datetime": data_formated, "message": "Boa tarde!"}, HTTPStatus.OK
 
     else:
-         return {"current_datetime": data_formated, "message": "Boa Noite!"}, HTTPStatus.OK
+         return {"current_datetime": data_formated, "message": "Boa noite!"}, HTTPStatus.OK
 
 
